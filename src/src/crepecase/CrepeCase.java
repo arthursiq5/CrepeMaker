@@ -61,4 +61,12 @@ public class CrepeCase {
     public int getContador(){
         return this.contador;
     }
+    
+    /**
+     * 
+     * @return double
+     */
+    public double getQuantMassa(){
+        return this.quantMassa;
+    }
 }
