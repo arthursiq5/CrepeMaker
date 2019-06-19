@@ -94,14 +94,14 @@ public class CrepeiraFactory {
      * @exception IllegalStateException
      * @return src.crepecase.Crepeira
      */
-    public Crepeira makeCrepeira(){
+    public CrepeCase makeCrepeira(){
         if(
             (!this.nomeRecheio.equals("")) &&
             (this.quantMassa > 0) &&
             (this.quantRecheio > 0) && 
             (this.tamanhoReservatorio > 0)
         ){
-            return new Crepeira(this.nomeRecheio, this.quantMassa, this.quantRecheio, this.tamanhoReservatorio, this.nivelAtual, this.contador);
+            return new CrepeCase(this.nomeRecheio, this.quantMassa, this.quantRecheio, this.tamanhoReservatorio, this.nivelAtual, this.contador);
         }else{
             throw new IllegalStateException("Um ou mais atributos obrigatórios não estão preenchidos");
         }

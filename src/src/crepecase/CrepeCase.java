@@ -12,14 +12,14 @@ import brain.geral.Reservatorio;
  * @author arthur
  * @version 1.0
  */
-public class Crepeira {
+public class CrepeCase {
     public final String nomeRecheio;
     private double quantMassa;
     private double quantRecheio;
     private Reservatorio reservatorioRecheio; // guarda recheio
     private int contador;
     
-    Crepeira(String nomeRecheio, double quantMassa, double quantRecheio, double tamanhoReservatorio, double nivelAtual, int contador){
+    CrepeCase(String nomeRecheio, double quantMassa, double quantRecheio, double tamanhoReservatorio, double nivelAtual, int contador){
         this.nomeRecheio = nomeRecheio;
         this.quantMassa = quantMassa;
         this.quantRecheio = quantRecheio;
@@ -27,7 +27,7 @@ public class Crepeira {
         this.contador = contador;
     }
     
-    Crepeira(String nomeRecheio, double quantMassa, double quantRecheio, double tamanhoReservatorio){
+    CrepeCase(String nomeRecheio, double quantMassa, double quantRecheio, double tamanhoReservatorio){
         this.nomeRecheio = nomeRecheio;
         this.quantMassa = quantMassa;
         this.quantRecheio = quantRecheio;
@@ -40,6 +40,7 @@ public class Crepeira {
         boolean retorno = false;
         if(this.reservatorioRecheio.getNivelAtual() >= this.quantRecheio){
            this.reservatorioRecheio.consumir(this.quantRecheio);
+           this.contador++;
            retorno = true;
         }else{
             System.err.println("Recheio insuficiente");
@@ -53,6 +54,11 @@ public class Crepeira {
                 (this.reservatorioRecheio.getCapacidadeMaxima() - this.reservatorioRecheio.getNivelAtual()) // enche a crepeira
         );
     }
-    
-    
+    /**
+     * 
+     * @return integer
+     */
+    public int getContador(){
+        return this.contador;
+    }
 }
