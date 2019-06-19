@@ -66,9 +66,11 @@ private CrepeMaker crepeMaker;
         textCrepesProduzidos = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setToolTipText("");
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.setOpaque(false);
 
         labelSaborDoCrepe.setText("Sabor");
 
