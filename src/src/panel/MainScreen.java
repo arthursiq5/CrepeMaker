@@ -32,37 +32,37 @@ public class MainScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        chocolate = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        buttonFrango = new javax.swing.JButton();
+        buttonChocolate = new javax.swing.JButton();
+        buttonMorango = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon/frango.png"))); // NOI18N
-        jButton1.setText("frango");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonFrango.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon/frango.png"))); // NOI18N
+        buttonFrango.setText("frango");
+        buttonFrango.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        buttonFrango.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonFrangoActionPerformed(evt);
             }
         });
 
-        chocolate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon/chocolate.png"))); // NOI18N
-        chocolate.setText("chocolate");
-        chocolate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        chocolate.addActionListener(new java.awt.event.ActionListener() {
+        buttonChocolate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon/chocolate.png"))); // NOI18N
+        buttonChocolate.setText("chocolate");
+        buttonChocolate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        buttonChocolate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chocolateActionPerformed(evt);
+                buttonChocolateActionPerformed(evt);
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon/morango.png"))); // NOI18N
-        jButton3.setText("morango");
-        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonMorango.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon/morango.png"))); // NOI18N
+        buttonMorango.setText("morango");
+        buttonMorango.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        buttonMorango.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                buttonMorangoActionPerformed(evt);
             }
         });
 
@@ -73,40 +73,46 @@ public class MainScreen extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chocolate, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonChocolate, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+                    .addComponent(buttonFrango, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonMorango, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(buttonFrango)
                 .addGap(60, 60, 60)
-                .addComponent(chocolate)
+                .addComponent(buttonChocolate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(buttonMorango)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonFrangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFrangoActionPerformed
        this.crepeScreen = new CrepeScreen(this.crepeMaker, CrepeCaseTrabalhado.CREPEIRAUM);
+       this.crepeScreen.setMainScreen(this);
        this.crepeScreen.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+       this.setVisible(false);
+    }//GEN-LAST:event_buttonFrangoActionPerformed
 
-    private void chocolateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chocolateActionPerformed
+    private void buttonChocolateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonChocolateActionPerformed
         this.crepeScreen = new CrepeScreen(this.crepeMaker, CrepeCaseTrabalhado.CREPEIRADOIS);
+        this.crepeScreen.setMainScreen(this);
         this.crepeScreen.setVisible(true);
-    }//GEN-LAST:event_chocolateActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_buttonChocolateActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void buttonMorangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMorangoActionPerformed
         this.crepeScreen = new CrepeScreen(this.crepeMaker, CrepeCaseTrabalhado.CREPEIRATRES);
+        this.crepeScreen.setMainScreen(this);
         this.crepeScreen.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_buttonMorangoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,8 +150,8 @@ public class MainScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton chocolate;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton buttonChocolate;
+    private javax.swing.JButton buttonFrango;
+    private javax.swing.JButton buttonMorango;
     // End of variables declaration//GEN-END:variables
 }

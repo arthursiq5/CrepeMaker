@@ -16,6 +16,7 @@ import src.crepemaker.CrepeMaker;
 public class CrepeScreen extends javax.swing.JFrame {
 private CrepeMaker crepeMaker;
     private final CrepeCaseTrabalhado crepeCase;
+    private MainScreen mainScreen;
     /**
      * Creates new form CrepeScreen
      * @param crepeMaker
@@ -26,6 +27,10 @@ private CrepeMaker crepeMaker;
         this.crepeCase = crepeCase;
         initComponents();
         this.atualizaDados();
+    }
+    
+    public void setMainScreen(MainScreen mainScreen){
+        this.mainScreen = mainScreen;
     }
 
     private void atualizaDados(){
@@ -61,9 +66,10 @@ private CrepeMaker crepeMaker;
         textRecheioDisponivel = new javax.swing.JTextField();
         buttonRecarregaMassa = new javax.swing.JButton();
         buttonRecarregaRecheio = new javax.swing.JButton();
-        produzCrepe = new javax.swing.JButton();
+        buttonProduzCrepe = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         textCrepesProduzidos = new javax.swing.JTextField();
+        buttonVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -118,11 +124,11 @@ private CrepeMaker crepeMaker;
             }
         });
 
-        produzCrepe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon/produzir.png"))); // NOI18N
-        produzCrepe.setText("produzir crepe");
-        produzCrepe.addActionListener(new java.awt.event.ActionListener() {
+        buttonProduzCrepe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon/produzir.png"))); // NOI18N
+        buttonProduzCrepe.setText("produzir crepe");
+        buttonProduzCrepe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                produzCrepeActionPerformed(evt);
+                buttonProduzCrepeActionPerformed(evt);
             }
         });
 
@@ -137,6 +143,14 @@ private CrepeMaker crepeMaker;
             }
         });
 
+        buttonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon/retornar.png"))); // NOI18N
+        buttonVoltar.setText("voltar");
+        buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -146,7 +160,7 @@ private CrepeMaker crepeMaker;
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(produzCrepe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonProduzCrepe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(24, 24, 24)
@@ -176,13 +190,18 @@ private CrepeMaker crepeMaker;
                         .addGap(9, 9, 9)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textCrepesProduzidos)))
+                        .addComponent(textCrepesProduzidos))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(buttonVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addContainerGap()
+                .addComponent(buttonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSaborDoCrepe)
                     .addComponent(textSaborDoCrepe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -197,7 +216,7 @@ private CrepeMaker crepeMaker;
                     .addComponent(textMassaUtilizada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textRecheioUtilizado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(produzCrepe)
+                .addComponent(buttonProduzCrepe)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -229,14 +248,14 @@ private CrepeMaker crepeMaker;
         // TODO add your handling code here:
     }//GEN-LAST:event_textRecheioUtilizadoActionPerformed
 
-    private void produzCrepeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_produzCrepeActionPerformed
+    private void buttonProduzCrepeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonProduzCrepeActionPerformed
         this.atualizaDados();
         try {
             this.crepeMaker.makeCrepe(this.crepeCase);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e, e.getMessage(), WIDTH);
         }
-    }//GEN-LAST:event_produzCrepeActionPerformed
+    }//GEN-LAST:event_buttonProduzCrepeActionPerformed
 
     private void textCrepesProduzidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCrepesProduzidosActionPerformed
         // TODO add your handling code here:
@@ -251,6 +270,11 @@ private CrepeMaker crepeMaker;
         this.crepeMaker.abasteceReservatorioRecheio(this.crepeCase);
         this.atualizaDados();
     }//GEN-LAST:event_buttonRecarregaRecheioActionPerformed
+
+    private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
+        this.mainScreen.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_buttonVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,8 +313,10 @@ private CrepeMaker crepeMaker;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonProduzCrepe;
     private javax.swing.JButton buttonRecarregaMassa;
     private javax.swing.JButton buttonRecarregaRecheio;
+    private javax.swing.JButton buttonVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -298,7 +324,6 @@ private CrepeMaker crepeMaker;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelSaborDoCrepe;
-    private javax.swing.JButton produzCrepe;
     private javax.swing.JTextField textCrepesProduzidos;
     private javax.swing.JTextField textMassaDisponivel;
     private javax.swing.JTextField textMassaUtilizada;

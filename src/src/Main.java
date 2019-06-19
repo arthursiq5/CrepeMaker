@@ -8,6 +8,7 @@ package src;
 import src.crepemaker.CrepeCaseTrabalhado;
 import src.crepemaker.CrepeMaker;
 import src.panel.CrepeScreen;
+import src.panel.MainScreen;
 
 /**
  *
@@ -15,7 +16,7 @@ import src.panel.CrepeScreen;
  */
 public class Main {
     public static void main(String[] args) {
-        CrepeScreen cs = new CrepeScreen(new CrepeMaker(), CrepeCaseTrabalhado.CREPEIRAUM);
-        cs.setVisible(true);
+        MainScreen mainScreen = new MainScreen();
+        mainScreen.setVisible(true);
     }
 }
