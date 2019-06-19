@@ -43,14 +43,41 @@ public class CrepeMaker {
         factory1.setTamanhoReservatorio(200);
         factory2.setTamanhoReservatorio(200);
         factory3.setTamanhoReservatorio(200);
+        
+        // produz crepecases
+        this.sabor01 = factory1.makeCrepeCase();
+        this.sabor02 = factory2.makeCrepeCase();
+        this.sabor03 = factory3.makeCrepeCase();
+        
+        this.reservatorio = new Reservatorio(2000); // produz um reservatorio de dois mil litros
     }
     
+    public void makeCrepeSabor1(){
+        if(this.reservatorio.getNivelAtual() >= this.sabor01.getQuantMassa()){
+            this.sabor01.produzCrepe();
+            this.reservatorio.consumir(this.sabor01.getQuantMassa());
+        }else{
+            throw new RuntimeException("Massa insuficiente");
+        }
+    }
+    public void makeCrepeSabor2(){
+        if(this.reservatorio.getNivelAtual() >= this.sabor02.getQuantMassa()){
+            this.sabor02.produzCrepe();
+            this.reservatorio.consumir(this.sabor02.getQuantMassa());
+        }else{
+            throw new RuntimeException("Massa insuficiente");
+        }
+    }
+    public void makeCrepeSabor3(){
+        if(this.reservatorio.getNivelAtual() >= this.sabor03.getQuantMassa()){
+            this.sabor03.produzCrepe();
+            this.reservatorio.consumir(this.sabor03.getQuantMassa());
+        }else{
+            throw new RuntimeException("Massa insuficiente");
+        }
+    }
     
+    public void abastecer(){
+        this.reservatorio.abastecer((this.reservatorio.getEspacoDisponivel()));
+    }
 }
-/*
-CrepeMaker // modela o funcionamento de uma crepeira
-+CrepeCase sabor01; // receita do crepe do primeiro sabor
-+CrepeCase sabor02; // receita do crepe do segundo sabor
-+CrepeCase sabor03; // receita do crepe do terceiro sabor
-+Reservatorio reservatorioMassa; // estoque de massa para fazer crepe
-*/

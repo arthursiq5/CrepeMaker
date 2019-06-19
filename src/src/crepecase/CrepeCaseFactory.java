@@ -9,7 +9,7 @@ package src.crepecase;
  *
  * @author arthur
  */
-public class CrepeiraFactory {
+public class CrepeCaseFactory {
     private String nomeRecheio;
     private double quantMassa;
     private double quantRecheio;
@@ -17,7 +17,7 @@ public class CrepeiraFactory {
     private double nivelAtual; 
     private int contador;
 
-    public CrepeiraFactory() {
+    public CrepeCaseFactory() {
         this.nomeRecheio = "";
         this.nivelAtual = 0;
         this.contador = 0;
@@ -92,9 +92,9 @@ public class CrepeiraFactory {
     
     /** 
      * @exception IllegalStateException
-     * @return src.crepecase.Crepeira
+     * @return src.crepecase.CrepeCase
      */
-    public CrepeCase makeCrepeira(){
+    public CrepeCase makeCrepeCase(){
         if(
             (!this.nomeRecheio.equals("")) &&
             (this.quantMassa > 0) &&

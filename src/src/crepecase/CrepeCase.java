@@ -43,7 +43,7 @@ public class CrepeCase {
            this.contador++;
            retorno = true;
         }else{
-            System.err.println("Recheio insuficiente");
+            throw new RuntimeException("Recheio insuficiente");
         }
         return retorno;
     }
@@ -51,7 +51,7 @@ public class CrepeCase {
     
     public void abasteceCrepeira(){
         this.reservatorioRecheio.abastecer(
-                (this.reservatorioRecheio.getCapacidadeMaxima() - this.reservatorioRecheio.getNivelAtual()) // enche a crepeira
+                (this.reservatorioRecheio.getEspacoDisponivel()) // enche a crepeira
         );
     }
     /**
