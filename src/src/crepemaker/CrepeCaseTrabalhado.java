@@ -10,7 +10,19 @@ package src.crepemaker;
  * @author arthur
  */
 public enum CrepeCaseTrabalhado {
-    CREPEIRAUM,
-    CREPEIRADOIS,
-    CREPEIRATRES
+    CREPEIRAUM("frango"),
+    CREPEIRADOIS("chocolate"),
+    CREPEIRATRES("morango");
+    
+    private final String sabor;
+
+    private CrepeCaseTrabalhado(String sabor) {
+        this.sabor = sabor;
+    }
+    
+    public String getSabor(){
+        return this.sabor;
+    }
+    
+    
 }
