@@ -73,4 +73,13 @@ public class CrepeCase {
     public double getNivelReservatorio(){
         return this.reservatorioRecheio.getNivelAtual();
     }
+    
+    @Override
+    public String toString(){
+        return this.nomeRecheio;
+    }
+
+    public double getQuantRecheio() {
+        return this.quantRecheio;
+    }
 }

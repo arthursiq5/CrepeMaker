@@ -95,7 +95,7 @@ public class CrepeMaker {
      * @param crepeCase
      * @return double
      */
-    public double getNivelReservatorioRecheio1(CrepeCaseTrabalhado crepeCase){
+    public double getNivelReservatorioRecheio(CrepeCaseTrabalhado crepeCase){
         switch(crepeCase){
             case CREPEIRAUM:
                 return this.sabor01.getNivelReservatorio();
@@ -105,5 +105,78 @@ public class CrepeMaker {
                 return this.sabor03.getNivelReservatorio();
         }
         
+    }
+    
+    public void abasteceReservatorioRecheio(CrepeCaseTrabalhado crepeCase){
+        switch(crepeCase){
+            case CREPEIRAUM:
+                this.sabor01.abasteceCrepeira();
+                break;
+            case CREPEIRADOIS:
+                this.sabor02.abasteceCrepeira();
+                break;
+            default:
+                this.sabor03.abasteceCrepeira();
+        }
+        
+    }
+    
+    public int getContadorDeCrepes(CrepeCaseTrabalhado crepeCase){
+        switch(crepeCase){
+            case CREPEIRAUM:
+                return this.sabor01.getContador();
+            case CREPEIRADOIS:
+                return this.sabor02.getContador();
+            default:
+                return this.sabor03.getContador();
+        }
+        
+    }
+    public String getRecheio(CrepeCaseTrabalhado crepeCase){
+        switch(crepeCase){
+            case CREPEIRAUM:
+                return this.sabor01 + "";
+            case CREPEIRADOIS:
+                return this.sabor02 + "";
+            default:
+                return this.sabor03 + "";
+        }
+        
+    }
+    public double getRecheioUtilizado(CrepeCaseTrabalhado crepeCase){
+        switch(crepeCase){
+            case CREPEIRAUM:
+                return this.sabor01.getQuantRecheio();
+            case CREPEIRADOIS:
+                return this.sabor02.getQuantRecheio();
+            default:
+                return this.sabor03.getQuantRecheio();
+        }
+        
+    }
+
+    public double getMassaUtilizada(CrepeCaseTrabalhado crepeCase) {
+        switch(crepeCase){
+            case CREPEIRAUM:
+                return this.sabor01.getQuantMassa();
+            case CREPEIRADOIS:
+                return this.sabor02.getQuantMassa();
+            default:
+                return this.sabor03.getQuantMassa();
+        }
+    }
+    public double getRecheioDisponivel(CrepeCaseTrabalhado crepeCase) {
+        switch(crepeCase){
+            case CREPEIRAUM:
+                return this.sabor01.getNivelReservatorio();
+            case CREPEIRADOIS:
+                return this.sabor02.getNivelReservatorio();
+            default:
+                return this.sabor03.getNivelReservatorio();
+        }
+    }
+    
+    public double getMassaDisponivel(){
+        return this.reservatorio.getNivelAtual();
     }
 }
