@@ -69,4 +69,8 @@ public class CrepeCase {
     public double getQuantMassa(){
         return this.quantMassa;
     }
+    
+    public double getNivelReservatorio(){
+        return this.reservatorioRecheio.getNivelAtual();
+    }
 }

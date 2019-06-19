@@ -52,32 +52,58 @@ public class CrepeMaker {
         this.reservatorio = new Reservatorio(2000); // produz um reservatorio de dois mil litros
     }
     
-    public void makeCrepeSabor1(){
-        if(this.reservatorio.getNivelAtual() >= this.sabor01.getQuantMassa()){
-            this.sabor01.produzCrepe();
-            this.reservatorio.consumir(this.sabor01.getQuantMassa());
-        }else{
-            throw new RuntimeException("Massa insuficiente");
+    /**
+     * 
+     * @param crepeCase 
+     */
+    public void makeCrepe(CrepeCaseTrabalhado crepeCase){
+        switch(crepeCase){
+            case CREPEIRAUM:
+                if(this.reservatorio.getNivelAtual() >= this.sabor01.getQuantMassa()){
+                    this.sabor01.produzCrepe();
+                    this.reservatorio.consumir(this.sabor01.getQuantMassa());
+                }else{
+                    throw new RuntimeException("Massa insuficiente");
+                }
+                break;
+            case CREPEIRADOIS:
+                if(this.reservatorio.getNivelAtual() >= this.sabor02.getQuantMassa()){
+                    this.sabor02.produzCrepe();
+                    this.reservatorio.consumir(this.sabor02.getQuantMassa());
+                }else{
+                    throw new RuntimeException("Massa insuficiente");
+                }
+                break;
+            default:
+                if(this.reservatorio.getNivelAtual() >= this.sabor03.getQuantMassa()){
+                    this.sabor03.produzCrepe();
+                    this.reservatorio.consumir(this.sabor03.getQuantMassa());
+                }else{
+                    throw new RuntimeException("Massa insuficiente");
+                }
+                break;
         }
-    }
-    public void makeCrepeSabor2(){
-        if(this.reservatorio.getNivelAtual() >= this.sabor02.getQuantMassa()){
-            this.sabor02.produzCrepe();
-            this.reservatorio.consumir(this.sabor02.getQuantMassa());
-        }else{
-            throw new RuntimeException("Massa insuficiente");
-        }
-    }
-    public void makeCrepeSabor3(){
-        if(this.reservatorio.getNivelAtual() >= this.sabor03.getQuantMassa()){
-            this.sabor03.produzCrepe();
-            this.reservatorio.consumir(this.sabor03.getQuantMassa());
-        }else{
-            throw new RuntimeException("Massa insuficiente");
-        }
+        
     }
     
     public void abastecer(){
         this.reservatorio.abastecer((this.reservatorio.getEspacoDisponivel()));
+    }
+    
+    /**
+     * 
+     * @param crepeCase
+     * @return double
+     */
+    public double getNivelReservatorioRecheio1(CrepeCaseTrabalhado crepeCase){
+        switch(crepeCase){
+            case CREPEIRAUM:
+                return this.sabor01.getNivelReservatorio();
+            case CREPEIRADOIS:
+                return this.sabor02.getNivelReservatorio();
+            default:
+                return this.sabor03.getNivelReservatorio();
+        }
+        
     }
 }
