@@ -14,6 +14,7 @@ import src.crepemaker.CrepeMaker;
  */
 public class MainScreen extends javax.swing.JFrame {
     private CrepeMaker crepeMaker;
+    private CrepeScreen crepeScreen;
     /**
      * Creates new form MainScreen
      */
@@ -41,14 +42,29 @@ public class MainScreen extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon/frango.png"))); // NOI18N
         jButton1.setText("frango");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         chocolate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon/chocolate.png"))); // NOI18N
         chocolate.setText("chocolate");
         chocolate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        chocolate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chocolateActionPerformed(evt);
+            }
+        });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon/morango.png"))); // NOI18N
         jButton3.setText("morango");
         jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,6 +92,21 @@ public class MainScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       this.crepeScreen = new CrepeScreen(this.crepeMaker, CrepeCaseTrabalhado.CREPEIRAUM);
+       this.crepeScreen.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void chocolateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chocolateActionPerformed
+        this.crepeScreen = new CrepeScreen(this.crepeMaker, CrepeCaseTrabalhado.CREPEIRADOIS);
+        this.crepeScreen.setVisible(true);
+    }//GEN-LAST:event_chocolateActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.crepeScreen = new CrepeScreen(this.crepeMaker, CrepeCaseTrabalhado.CREPEIRATRES);
+        this.crepeScreen.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
